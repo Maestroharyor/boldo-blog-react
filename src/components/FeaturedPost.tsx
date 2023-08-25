@@ -6,7 +6,7 @@ const FeaturedPost = () => {
   return (
     <>
       <section className="flex flex-col md:flex-row gap-10 items-center py-10">
-        <figure className="md:max-w-[550px] w-full overflow-hidden h-fit rounded-3xl flex-1">
+        <figure className="md:max-w-[550px] w-full overflow-hidden h-fit rounded-[40px] flex-1">
           <img
             src={featuredImage}
             alt=""
