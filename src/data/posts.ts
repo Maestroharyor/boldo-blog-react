@@ -3,7 +3,7 @@ import { Post } from "../types";
 export const posts: Post[] = [
   {
     title: "Pitch termsheet backing validation focus release.",
-    category: "Category",
+    category: "News",
     isFeaturedPost: true,
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
@@ -19,7 +19,7 @@ export const posts: Post[] = [
   {
     title:
       "Seed round direct mailing non-disclosure agreement graphical user interface rockstar.",
-    category: "Category",
+    category: "Productivity",
     isFeaturedPost: true,
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
@@ -35,7 +35,7 @@ export const posts: Post[] = [
   {
     title:
       "Beta prototype sales iPad gen-z marketing network effects value proposition",
-    category: "Category",
+    category: "Updates",
     isFeaturedPost: true,
     excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
