@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { desktopHeaderMenus, mobileHeaderMenus } from "../data/menus";
+
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   return (
     <header className="sticky top-0 lg:static max-w-[1200px] mx-auto py-3 lg:py-5 px-5 lg:px-0 bg-white z-10">
       <nav className="flex items-center justify-between">
@@ -24,24 +29,15 @@ const Header = () => {
         </a>
 
         <div className="md:inline-flex gap-7 items-center hidden">
-          <a
-            className="text-[#0A2640] text-[16px] font-semibold hover:text-blue-900 transition-all duration-300"
-            href="#"
-          >
-            Products
-          </a>
-          <a
-            className="text-[#0A2640] text-[16px] font-semibold hover:text-blue-900 transition-all duration-300"
-            href="#"
-          >
-            Services
-          </a>
-          <a
-            className="text-[#0A2640] text-[16px] font-semibold hover:text-blue-900 transition-all duration-300"
-            href="#"
-          >
-            About
-          </a>
+          {desktopHeaderMenus.map((menu) => (
+            <a
+              href="#"
+              className="text-[#0A2640] text-[16px] font-semibold hover:text-blue-900 transition-all duration-300"
+              key={menu.title}
+            >
+              {menu.title}
+            </a>
+          ))}
 
           <a
             href="#"
@@ -51,7 +47,10 @@ const Header = () => {
           </a>
         </div>
 
-        <button className="md:hidden mobile_menu_button_open">
+        <button
+          className="md:hidden mobile_menu_button_open"
+          onClick={toggleMenu}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -69,7 +68,11 @@ const Header = () => {
         </button>
       </nav>
 
-      <nav className="mobile_menu absolute top-0 left-0 w-full h-full bg-[#0A2640] md:hidden px-5 py-6 space-y-6 transform translate-x-[-100vw] transition-all duration-300 ease-in-out mobile_menu_nav">
+      <nav
+        className={`mobile_menu absolute top-0 left-0 w-full h-screen bg-[#0A2640] md:hidden px-5 py-6 space-y-6 transform  transition-all duration-300 ease-in-out mobile_menu_nav ${
+          isMenuOpen ? "translate-x-0" : "translate-x-[-100vw]"
+        }`}
+      >
         <div className="flex justify-between">
           <a href="/" className="text-white inline-flex items-center gap-3">
             <svg
@@ -92,7 +95,10 @@ const Header = () => {
             <h2 className="font-bold text-[44px]">Boldo</h2>
           </a>
 
-          <button className="text-red-400 hover:text-red-500 transition-all duration-300 ease-in-out mobile_menu_button_close">
+          <button
+            className="text-red-400 hover:text-red-500 transition-all duration-300 ease-in-out mobile_menu_button_close"
+            onClick={toggleMenu}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -111,30 +117,15 @@ const Header = () => {
         </div>
 
         <div className="flex flex-col divide-y divide-gray-400">
-          <a
-            className="text-white text-[18px] font-semibold hover:text-blue-100 transition-all duration-300 py-5"
-            href="#"
-          >
-            Products
-          </a>
-          <a
-            className="text-white text-[18px] font-semibold hover:text-blue-100 transition-all duration-300 py-5"
-            href="#"
-          >
-            Services
-          </a>
-          <a
-            className="text-white text-[18px] font-semibold hover:text-blue-100 transition-all duration-300 py-5"
-            href="#"
-          >
-            About
-          </a>
-          <a
-            className="text-white text-[18px] font-semibold hover:text-blue-100 transition-all duration-300 py-5"
-            href="#"
-          >
-            Log In
-          </a>
+          {mobileHeaderMenus.map((menu) => (
+            <a
+              href="#"
+              className="text-white text-[18px] font-semibold hover:text-blue-100 transition-all duration-300 py-5"
+              key={menu.title}
+            >
+              {menu.title}
+            </a>
+          ))}
         </div>
       </nav>
     </header>

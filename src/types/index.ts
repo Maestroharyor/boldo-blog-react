@@ -14,4 +14,6 @@ export interface Post {
 export interface Menu {
   title: string;
   link: string;
+  hasButton?: boolean;
+  buttonLabel?: string;
 }
